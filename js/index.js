@@ -95,10 +95,17 @@ function done() {
         $('#modal-error').modal();
     } else {
         var path = '/quiz.html?q=' + btoa(JSON.stringify(questions));
-        var link = window.location.host + path;
+        var longLink = window.location.host + path;
 
-        $('#text-done').text(link);
-        $('#text-done').attr('href', path);
-        $('#modal-done').modal();
+        shortenURL(longLink, function(url) {
+            if(url != null){
+                $('#text-done').text(url);
+                $('#text-done').attr('href', path);
+                $('#modal-done').modal();
+            }
+            else{
+                $('#modal-error').modal();
+            }
+        });
     }
 }
