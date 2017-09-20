@@ -1,0 +1,56 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+
+    background-color: #fafafa;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+header {
+    flex: 0 1 auto;
+}
+
+main {
+    flex: 1 1 auto;
+
+    display: grid;   
+    grid-template-areas: 'statement statement' 'btn-true btn-false';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+}
+
+@media screen and (max-aspect-ratio: 13/9) {
+    main {
+        grid-template-areas: 'statement' 'btn-true' 'btn-false';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto auto;
+    }
+}
+
+#statement {
+    grid-area: statement;
+
+    text-align: center;
+    font-size: 2em;
+}
+
+button,
+button:focus {
+    font-size: 5em;
+}
+
+#btn-false {
+    grid-area: btn-false;
+}
+
+#btn-true {
+    grid-area: btn-true;
+}

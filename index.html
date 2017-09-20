@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>boolean</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>boolean</h1>
+        <a href="https://github.com/Fylipp/boolean">Source on GitHub</a>
+    </header>
+    <main>
+        <h1>Create your own quiz!</h1>
+        <ul id="questions"></ul>
+        <button id="btn-add" onclick="addQuestion(true);">
+            <i class="material-icons">add</i>    
+        </button>
+        <button id="btn-done" onclick="done();">
+            <i class="material-icons">arrow_forward</i>    
+        </button>
+
+        <div id="modal-done" style="display:none;">
+            <p>Your quiz can be played at <a target="_blank" id="text-done"></a></p>
+        </div>
+
+        <div id="modal-error" style="display:none;">
+            <p>Your quiz does not contain any questions</p>
+        </div>
+    </main>
+</body>
+
+</html>

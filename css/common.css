@@ -1,0 +1,43 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;    
+}
+
+header {
+    cursor: default;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    border-bottom: 1px solid black;
+    
+    text-align: center;
+
+    padding-bottom: .5em;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: blue;
+}
+
+button,
+button:focus {
+    color: white;
+
+    border: none;
+    outline: none;
+
+    padding: 0;
+
+    font-weight: bold;
+    cursor: hand;
+}
+
+.true {
+    background-color: green;
+}
+
+.false {
+    background-color: red;
+}
