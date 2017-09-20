@@ -97,9 +97,6 @@ function done() {
         var path = '/quiz.html?q=' + btoa(JSON.stringify(questions));
         var longLink = window.location.href + path;
 
-        console.log("Window.location.host: " + window.location.host);
-        console.log("path: " + path);
-
         shortenURL(longLink, function(url) {
             if(url != null){
                 $('#text-done').text(url);
