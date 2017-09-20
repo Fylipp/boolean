@@ -1,10 +1,9 @@
-const urlShortererKey = config.GUSKey;
+const urlShortenerKey = config.GUSKey;
 
 function shortenURL(/* string */ url, callback){
-    console.log(urlShortererKey)
     $.ajax({
         method: 'POST',
-        url: 'https://www.googleapis.com/urlshortener/v1/url?key=' + urlShortererKey,
+        url: 'https://www.googleapis.com/urlshortener/v1/url?key=' + urlShortenerKey,
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify({ "longUrl": url }),
