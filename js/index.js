@@ -100,7 +100,7 @@ function done() {
         shortenURL(longLink, function(url) {
             if(url != null){
                 $('#text-done').text(url);
-                $('#text-done').attr('href', path);
+                $('#text-done').attr('href', url);
                 $('#modal-done').modal();
             }
             else{
