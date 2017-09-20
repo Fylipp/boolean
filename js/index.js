@@ -95,7 +95,7 @@ function done() {
         $('#modal-error').modal();
     } else {
         var path = '/quiz.html?q=' + btoa(JSON.stringify(questions));
-        var longLink = window.location.host + path;
+        var longLink = window.location.href + path;
 
         shortenURL(longLink, function(url) {
             if(url != null){
