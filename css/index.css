@@ -35,6 +35,14 @@ ul {
     border-bottom: 2px solid black;
 }
 
+.question[data-toggle='1'] > input {
+    border-bottom-color: green;
+}
+
+.question[data-toggle='0'] > input {
+    border-bottom-color: red;
+}
+
 .question > input:focus {
     outline: none;
 

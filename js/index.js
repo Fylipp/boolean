@@ -5,7 +5,7 @@ $(function () {
     addQuestion(false);
 });
 
-function toggleButton(button) {
+function toggleButton(button, item) {
     button = $(button);
     var value = button.hasClass('true');
 
@@ -13,10 +13,12 @@ function toggleButton(button) {
         button.removeClass('true');
         button.addClass('false');
         button.text('False');
+        item.attr('data-toggle', '0');
     } else {
         button.removeClass('false');
         button.addClass('true');
         button.text('True');
+        item.attr('data-toggle', '1');
     }
 }
 
@@ -39,6 +41,7 @@ function removeQuestion(questionItem) {
 
 function addQuestion(removeable) {
     var item = $('<li></li>');
+    item.attr('data-toggle', '1');    
     item.addClass('question');
 
     var question = $('<input></input>');
@@ -47,7 +50,7 @@ function addQuestion(removeable) {
     var btnTrueFalseToggle = $('<button></button>');
     btnTrueFalseToggle.addClass('btn-toggle');
     btnTrueFalseToggle.click(function () {
-        toggleButton(btnTrueFalseToggle);
+        toggleButton(btnTrueFalseToggle, item);
     });
     btnTrueFalseToggle.addClass('true');
     btnTrueFalseToggle.text('True');
