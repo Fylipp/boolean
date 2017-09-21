@@ -2,7 +2,7 @@ var list;
 
 $(function () {
     list = $('#questions');
-    addQuestion(false);
+    addQuestion();
 });
 
 function toggleButton(button, item) {
@@ -39,12 +39,22 @@ function removeQuestion(questionItem) {
     }
 }
 
-function addQuestion(removeable) {
+function addQuestion() {
     var item = $('<li></li>');
     item.attr('data-toggle', '1');    
     item.addClass('question');
 
     var question = $('<input></input>');
+    question.keyup(function() {
+        if (question.val().trim().length === 0 && list.children().length > 1) {
+            item.remove();
+        }
+    });
+    question.keyup(function() {
+        if (question.val().length !== 0 && item.is(':last-child')) {
+            addQuestion();
+        }
+    });
     question.attr('placeholder', 'Enter your statement here...');
 
     var btnTrueFalseToggle = $('<button></button>');
@@ -54,18 +64,6 @@ function addQuestion(removeable) {
     });
     btnTrueFalseToggle.addClass('true');
     btnTrueFalseToggle.text('True');
-
-    var btnRemove = $('<button></button>');
-    btnRemove.addClass('btn-remove');
-    btnRemove.click(function () {
-        removeQuestion(item);
-    });
-    btnRemove.text('Remove');
-    if (!removeable) {
-        btnRemove.attr('disabled', '');
-    }
-
-    item.append(btnRemove);
 
     item.append(question);
     item.append(btnTrueFalseToggle);
@@ -88,9 +86,7 @@ function done() {
         if(item.children('button').hasClass('btn-toggle')){
             var question = $(item).children('input').val().trim();
             var answer = (item.children('button').hasClass('true') ? true : false);
-    
-            console.log('Answer: ' + answer);
-    
+        
             if (question.length !== 0) {
                 questions.push([question, answer]);
             }

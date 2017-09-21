@@ -53,25 +53,6 @@ ul {
     width: 15%;
 }
 
-.btn-remove {
-    color: black;
-}
-
-.btn-remove:disabled {
-    color: grey;
-
-    cursor: default;
-}
-
-.btn-remove:hover:not(:disabled) {
-    color: red;
-}
-
-.btn-remove {
-    width: 5%;
-    background-color: transparent;
-}
-
 main > button {
     display: inline-block;
     margin: 0 auto;
