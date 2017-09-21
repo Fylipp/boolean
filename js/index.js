@@ -82,11 +82,15 @@ function done() {
     list.children().each(function (i, item) {
         item = $(item);
 
-        var question = $(item).children('input').val().trim();
-        var answer = item.children('button').text() === 'True';
-
-        if (question.length !== 0) {
-            questions.push([question, answer]);
+        if(item.children('button').hasClass('btn-toggle')){
+            var question = $(item).children('input').val().trim();
+            var answer = (item.children('button').hasClass('true') ? true : false);
+    
+            console.log('Answer: ' + answer);
+    
+            if (question.length !== 0) {
+                questions.push([question, answer]);
+            }
         }
     });
 
