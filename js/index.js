@@ -45,25 +45,24 @@ function addQuestion(removeable) {
     question.attr('placeholder', 'Enter your statement here...');
 
     var btnTrueFalseToggle = $('<button></button>');
+    btnTrueFalseToggle.addClass('btn-toggle');
     btnTrueFalseToggle.click(function () {
         toggleButton(btnTrueFalseToggle);
     });
     btnTrueFalseToggle.addClass('true');
     btnTrueFalseToggle.text('True');
 
-    if (removeable) {
-        var btnRemove = $('<a></a>');
-        btnRemove.addClass('btn-remove');
-        btnRemove.click(function () {
-            removeQuestion(item);
-        });
-        var btnRemoveText = $('<i></i>');
-        btnRemoveText.addClass('material-icons');
-        btnRemoveText.text('delete');
-        btnRemove.append(btnRemoveText);
-
-        item.append(btnRemove);
+    var btnRemove = $('<button></button>');
+    btnRemove.addClass('btn-remove');
+    btnRemove.click(function () {
+        removeQuestion(item);
+    });
+    btnRemove.text('Remove');
+    if (!removeable) {
+        btnRemove.attr('disabled', '');
     }
+
+    item.append(btnRemove);
 
     item.append(question);
     item.append(btnTrueFalseToggle);
@@ -97,13 +96,12 @@ function done() {
         var path = '/quiz.html?q=' + btoa(JSON.stringify(questions));
         var longLink = window.location.href + path;
 
-        shortenURL(longLink, function(url) {
-            if(url != null){
+        shortenURL(longLink, function (url) {
+            if (url != null) {
                 $('#text-done').text(url);
                 $('#text-done').attr('href', url);
                 $('#modal-done').modal();
-            }
-            else{
+            } else {
                 $('#modal-error').modal();
             }
         });

@@ -41,22 +41,22 @@ ul {
     border-bottom-color: blue;
 }
 
-.question > button {
+.btn-toggle {
     width: 15%;
 }
 
 .btn-remove {
     color: black;
-
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
 }
 
-.btn-remove:hover {
-    color: red;
+.btn-remove:disabled {
+    color: grey;
 
-    cursor: hand;
+    cursor: default;
+}
+
+.btn-remove:hover:not(:disabled) {
+    color: red;
 }
 
 .btn-remove {
