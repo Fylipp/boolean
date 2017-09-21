@@ -41,16 +41,20 @@ function removeQuestion(questionItem) {
 
 function addQuestion() {
     var item = $('<li></li>');
-    item.attr('data-toggle', '1');    
+    item.attr('data-toggle', '1');
     item.addClass('question');
 
     var question = $('<input></input>');
-    question.keyup(function() {
+    question.keyup(function () {
         if (question.val().trim().length === 0 && list.children().length > 1) {
-            item.remove();
+            if (item.is(':last-child')) {
+                item.remove();
+            } else {
+                list.children(':last-child').remove();
+            }
         }
     });
-    question.keyup(function() {
+    question.keyup(function () {
         if (question.val().length !== 0 && item.is(':last-child')) {
             addQuestion();
         }
@@ -83,10 +87,10 @@ function done() {
     list.children().each(function (i, item) {
         item = $(item);
 
-        if(item.children('button').hasClass('btn-toggle')){
+        if (item.children('button').hasClass('btn-toggle')) {
             var question = $(item).children('input').val().trim();
             var answer = (item.children('button').hasClass('true') ? true : false);
-        
+
             if (question.length !== 0) {
                 questions.push([question, answer]);
             }
