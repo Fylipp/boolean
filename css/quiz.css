@@ -15,11 +15,7 @@ body {
 }
 
 header {
-    flex: 0 1 auto;
-
-    text-align: center;
-    
-    border-bottom: 1px solid black;    
+    flex: 0 1 auto;   
 }
 
 main {

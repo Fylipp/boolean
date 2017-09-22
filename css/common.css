@@ -4,12 +4,54 @@
 }
 
 header {
+    display: flex;
+    
+    margin: 0;
+    padding: .5em;
+    
+    box-shadow:
+        0 6px 10px 0 rgba(0, 0, 0, 0.14), 
+        0 1px 18px 0 rgba(0, 0, 0, 0.12),
+        0 3px 5px -1px rgba(0, 0, 0, 0.3);
+
     cursor: default;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    
-    padding-bottom: .5em;
+    -ms-user-select: none;
+}
+
+#logo {
+    flex: 0 1 auto;
+
+    width: 5em;
+    height: 5em;
+
+    image-rendering: pixelated;
+}
+
+#title {
+    flex: 1 1 auto;
+}
+
+#title a {
+    color: initial;
+}
+
+#title a:hover {
+    text-decoration: underline;
+}
+
+#gh-link {
+    flex: 0 1 auto;
+}
+
+#gh-mark {
+    height: 5em;
+}
+
+#gh-mark:hover {
+    filter: brightness(400%);
 }
 
 a, a:visited {
