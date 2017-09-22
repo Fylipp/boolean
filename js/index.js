@@ -47,9 +47,7 @@ function addQuestion() {
     var question = $('<input></input>');
     question.keyup(function () {
         if (question.val().trim().length === 0 && list.children().length > 1) {
-            if (item.is(':last-child')) {
-                item.remove();
-            } else {
+            if (!item.is(':last-child')) {
                 list.children(':last-child').remove();
             }
         }
