@@ -8,11 +8,7 @@ header {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-
-    border-bottom: 1px solid black;
     
-    text-align: center;
-
     padding-bottom: .5em;
 }
 

@@ -1,13 +1,47 @@
-header {
-    text-align: center;
-}
-
-h1 {
-    text-align: center;
+html, body {
+    padding: 0;
+    margin: 0;
 }
 
 main {
     text-align: center;
+}
+
+header {
+    display: flex;
+
+    margin: 0;
+    padding: .5em;
+
+    box-shadow:
+        0 6px 10px 0 rgba(0, 0, 0, 0.14), 
+        0 1px 18px 0 rgba(0, 0, 0, 0.12),
+        0 3px 5px -1px rgba(0, 0, 0, 0.3);
+}
+
+header > img {
+    flex: 0 1 auto;
+
+    width: 5em;
+    height: 5em;
+
+    image-rendering: pixelated;
+}
+
+header > h1 {
+    flex: 1 1 auto;
+}
+
+header > a {
+    flex: 0 1 auto;
+}
+
+header > a > img {
+    height: 5em;
+}
+
+header > a > img:hover {
+    filter: brightness(400%);
 }
 
 ul {
