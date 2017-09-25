@@ -32,6 +32,7 @@
     </header>
     <main>
         <h1>Create your own quiz!</h1>
+        <input id="quiz-name" placeholder="Quiz name">
         <ul id="questions"></ul>
         <button id="btn-done" onclick="done();">
             <i class="material-icons">arrow_forward</i>    
@@ -42,7 +43,7 @@
         </div>
 
         <div id="modal-error" style="display:none;">
-            <p>Your quiz does not contain any questions</p>
+            <p id="modal-error-text"></p>
         </div>
     </main>
 </body>

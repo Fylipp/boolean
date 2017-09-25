@@ -18,6 +18,10 @@ header {
     flex: 0 1 auto;   
 }
 
+#header-title {
+    padding-left: 1em;
+}
+
 main {
     flex: 1 1 auto;
 

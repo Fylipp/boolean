@@ -1,7 +1,9 @@
 var list;
+var quizName;
 
 $(function () {
     list = $('#questions');
+    quizName = $('#quiz-name');
     addQuestion();
 });
 
@@ -80,7 +82,21 @@ function addQuestion() {
 }
 
 function done() {
-    var questions = [];
+    var quiz = [];
+
+    var name = quizName.val().trim();
+
+    if (name.length > 20) {
+        error('Your quiz name must be 20 characters at most.');
+        return;
+    }
+
+    if (name.length === 0) {
+        error('Your quiz must have a name.');
+        return;
+    }
+
+    quiz.push(name);
 
     list.children().each(function (i, item) {
         item = $(item);
@@ -90,15 +106,15 @@ function done() {
             var answer = (item.children('button').hasClass('true') ? true : false);
 
             if (question.length !== 0) {
-                questions.push([question, answer]);
+                quiz.push([question, answer]);
             }
         }
     });
 
-    if (questions.length === 0) {
-        $('#modal-error').modal();
+    if (quiz.length <= 1) {
+        error('Your quiz does not contain any statements.');        
     } else {
-        var path = '/quiz.html?q=' + btoa(JSON.stringify(questions));
+        var path = '/quiz.html?q=' + btoa(JSON.stringify(quiz));
         var longLink = window.location.href + path;
 
         shortenURL(longLink, function (url) {
@@ -107,8 +123,13 @@ function done() {
                 $('#text-done').attr('href', url);
                 $('#modal-done').modal();
             } else {
-                $('#modal-error').modal();
+                error('Your quiz could not be created do to an issue with the goo.gl service.');                
             }
         });
     }
+}
+
+function error(text) {
+    $('#modal-error-text').text(text);
+    $('#modal-error').modal();
 }

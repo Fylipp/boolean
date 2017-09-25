@@ -57,6 +57,11 @@ header {
 
 #header-title {
     flex: 1 1 auto;
+
+    font-size: 2em;
+
+    display: flex;
+    align-items: center;
 }
 
 #gh-link {

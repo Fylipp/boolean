@@ -1,10 +1,17 @@
 $(function () {
-    var statementsString = getQueryArgument('q');
-    var statements = convert(JSON.parse(atob(statementsString)));
+    var quizString = getQueryArgument('q');
+    var quizC = convert(JSON.parse(atob(quizString)));
+
+    var name = quizC.name;
+    if (name.length > 20) {
+        name = name.substring(0, 20);
+    }
+
+    var statements = quizC.statements;
+
+    $('#header-title').text(name);
 
     var statementIndex = 0;
-
-    var answers = [];
 
     var txtStatement = $('#statement');
 
@@ -45,16 +52,20 @@ function getQueryArgument(queryParameter) {
 }
 
 function convert(raw) {
+    var name = raw[0];
     var statements = [];
 
-    for (var i = 0; i < raw.length; i++) {
+    for (var i = 1; i < raw.length; i++) {
         var q = raw[i];
-
+        
         statements.push({
             statement: q[0],
             answer: q[1]
         });
     }
 
-    return statements;
+    return {
+        name: name,
+        statements: statements
+    };
 }
