@@ -24,6 +24,11 @@ header {
 #logo {
     flex: 0 1 auto;
 
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
     width: 5em;
     height: 5em;
 
@@ -36,16 +41,22 @@ header {
     -ms-interpolation-mode: nearest-neighbor;
 }
 
-#title {
-    flex: 1 1 auto;
+#logo:hover img {
+    filter: brightness(80%);
 }
 
-#title a {
+#logo span {
     color: initial;
+    font-size: 2em;
+    font-weight: bold;
 }
 
-#title a:hover {
-    text-decoration: underline;
+#logo:hover span {
+    color: grey;
+}
+
+#header-title {
+    flex: 1 1 auto;
 }
 
 #gh-link {
