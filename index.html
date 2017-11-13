@@ -4,7 +4,7 @@
     <title>boolean</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -13,39 +13,40 @@
     <link rel="stylesheet" href="css/index.css">
 
     <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.min.js"></script>
+    <script type='text/javascript'
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.min.js"></script>
     <script type='text/javascript' src='config.js'></script>
     <script type='text/javascript' src='js/util.js'></script>
     <script type='text/javascript' src="js/index.js"></script>
 </head>
 
 <body>
-    <header>
-        <a id="logo" href=".." target="_blank">
-            <img src="favicon.ico">
-            <span>boolean</span>
-        </a>
-        <span id="header-title"></span>
-        <a id="gh-link" href="https://github.com/Fylipp/boolean" target="_blank">
-            <img id="gh-mark" src="img/gh-mark.png">
-        </a>
-    </header>
-    <main>
-        <h1>Create your own quiz!</h1>
-        <input id="quiz-name" placeholder="Quiz name">
-        <ul id="questions"></ul>
-        <button id="btn-done" onclick="done();">
-            <i class="material-icons">arrow_forward</i>    
-        </button>
+<header>
+    <a id="logo" href=".." target="_blank">
+        <img src="favicon.ico">
+        <span>boolean</span>
+    </a>
+    <span id="header-title"></span>
+    <a id="gh-link" href="https://github.com/Fylipp/boolean" target="_blank">
+        <img id="gh-mark" src="img/gh-mark.png">
+    </a>
+</header>
+<main>
+    <h1>Create your own quiz!</h1>
+    <input id="quiz-name" placeholder="Quiz name">
+    <ul id="questions"></ul>
+    <button id="btn-done" onclick="done();">
+        <i class="material-icons">arrow_forward</i>
+    </button>
 
-        <div id="modal-done" style="display:none;">
-            <p>Your quiz can be played at <a target="_blank" id="text-done"></a></p>
-        </div>
+    <div id="modal-done" style="display:none;">
+        <p>Your quiz can be played at <a target="_blank" id="text-done"></a></p>
+    </div>
 
-        <div id="modal-error" style="display:none;">
-            <p id="modal-error-text"></p>
-        </div>
-    </main>
+    <div id="modal-error" style="display:none;">
+        <p id="modal-error-text"></p>
+    </div>
+</main>
 </body>
 
 </html>
