@@ -30,9 +30,15 @@ $(function () {
         statement.correct = response === statement.answer;
 
         if (statementIndex === statements.length - 1) {
-            alert('You answered ' + statements.filter(function (q) {
-                return q.correct;
-            }).length + ' of ' + statements.length + ' question correctly');
+            var result = {
+                quizName: name,
+                score: statements.filter(function (q) {
+                    return q.correct;
+                }).length,
+                total: statements.length
+            };
+
+            location.href = 'result.html?r=' + btoa(JSON.stringify(result)) + '&ql=' + encodeURIComponent(location.href);
         } else {
             statementIndex++;
             showStatement();
@@ -44,20 +50,13 @@ $(function () {
     }
 });
 
-function getQueryArgument(queryParameter) {
-    var re = new RegExp('(?:\\?|&)' + encodeURIComponent(queryParameter) + '=([^&]*)');
-    var match = re.exec(window.location.search);
-
-    return (!match || match.length === 0) ? undefined : match[match.length - 1];
-}
-
 function convert(raw) {
     var name = raw[0];
     var statements = [];
 
     for (var i = 1; i < raw.length; i++) {
         var q = raw[i];
-        
+
         statements.push({
             statement: q[0],
             answer: q[1]

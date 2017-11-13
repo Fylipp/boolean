@@ -1,0 +1,49 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+
+    background-color: #fafafa;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+header {
+    flex: 0 1 auto;
+}
+
+#header-title {
+    padding-left: 1em;
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+main > * {
+    text-align: center;
+}
+
+@media screen and (max-aspect-ratio: 13/9) {
+    #header-title {
+        font-size: 0;
+    }
+}
+
+#result, #pre-result {
+    font-size: 3em;
+}
+
+#result-score, #result-total {
+    font-weight: bold;
+}
+
+#quiz-link {
+    font-size: 2em;
+}

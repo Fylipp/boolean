@@ -8,12 +8,12 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/result.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="config.js"></script>
     <script src="js/util.js"></script>
-    <script src="js/quiz.js"></script>
+    <script src="js/result.js"></script>
 </head>
 
 <body>
@@ -28,9 +28,13 @@
     </a>
 </header>
 <main>
-    <p id="statement"></p>
-    <button id="btn-false" class="false">False</button>
-    <button id="btn-true" class="true">True</button>
+    <p id="pre-result">Your score:</p>
+    <p id="result">
+        <span id="result-score"></span>
+        <span>of</span>
+        <span id="result-total"></span>
+    </p>
+    <p><a id="quiz-link" target="_blank">Replay</a></p>
 </main>
 </body>
 
