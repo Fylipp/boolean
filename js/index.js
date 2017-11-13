@@ -24,29 +24,12 @@ function toggleButton(button, item) {
     }
 }
 
-function removeQuestion(questionItem) {
-    questionItem.remove();
-
-    if (list.children.length !== 0) {
-        return;
-        var elements = list.children[list.children.length - 1].children;
-        for (var i = 0; i < elements.length; i++) {
-            var el = elements[i];
-
-            if (el.prop('tagName') === 'INPUT') {
-                el.focus();
-                break;
-            }
-        }
-    }
-}
-
 function addQuestion() {
     var item = $('<li></li>');
     item.attr('data-toggle', '1');
     item.addClass('question');
 
-    var question = $('<input></input>');
+    var question = $('<input/>');
     question.keyup(function () {
         if (question.val().trim().length === 0 && list.children().length > 1) {
             if (!item.is(':last-child')) {
@@ -73,12 +56,6 @@ function addQuestion() {
     item.append(btnTrueFalseToggle);
 
     list.append(item);
-
-    return {
-        giveFocus: function () {
-            question.focus();
-        }
-    }
 }
 
 function done() {
@@ -103,7 +80,7 @@ function done() {
 
         if (item.children('button').hasClass('btn-toggle')) {
             var question = $(item).children('input').val().trim();
-            var answer = (item.children('button').hasClass('true') ? true : false);
+            var answer = item.children('button').hasClass('true');
 
             if (question.length !== 0) {
                 quiz.push([question, answer]);
@@ -118,9 +95,8 @@ function done() {
         var longLink = window.location.href + path;
 
         shortenURL(longLink, function (url) {
-            if (url != null) {
-                $('#text-done').text(url);
-                $('#text-done').attr('href', url);
+            if (url !== null) {
+                $('#text-done').text(url).attr('href', url);
                 $('#modal-done').modal();
             } else {
                 error('Your quiz could not be created do to an issue with the goo.gl service.');                
