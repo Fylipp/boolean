@@ -37,6 +37,10 @@ main {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr auto auto;
     }
+
+    #header-title {
+        font-size: 0;
+    }
 }
 
 #statement {
